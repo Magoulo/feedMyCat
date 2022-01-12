@@ -1,0 +1,24 @@
+<h1>new Donation alternative!</h1>
+
+{{#each errors}}
+<li>{{this}}</li>
+{{/each}}
+
+<form action="/donationalternative/create" method="POST">
+	<input type="hidden" name="_csrf" value="{{csrfToken}}">
+	<div class="text-left">
+		Name:<br>
+		<input type="text" name="name">
+	</div>
+	<div class="text-left">
+		Description:<br>
+		<textarea name="description"></textarea>
+	</div>
+	<div class="text-left">
+		Link to website:<br>
+		<input type="text" name="link">
+	</div>
+	<div>
+		<input class="float-left" type="submit" value="Create">
+	</div>
+</form>

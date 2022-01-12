@@ -1,0 +1,23 @@
+<h1>My Ads</h1>
+<div>
+  <a href="/index/create"><button class="btn bg-primary">Create a new Ad</button></a>
+</div>
+
+{{#if hasDatabaseError}}
+<p>Couldn't fetch the cats at the moment, try again later.</p>
+
+{{else}}
+
+{{#if cat.length}}
+{{#each cat}}
+<ul style="list-style: none;">
+  <li>Name: {{Name}}</li>
+  <li> <img src={{Image_reference}} alt="{{Id}}" style="width:500px;height:600px;"></li>
+  <li>Description: {{Description}}</li>
+  <li>Age: {{Age}}</li>
+</ul>
+<a href="/index/{{Cat_id}}/update"><button class="btn btn-link text-light bg-success"> Update</button></a>
+<a href="/index/{{Cat_id}}/delete"><button class="btn btn-link text-light bg-error">Delete</button></a>
+{{/each}}
+{{/if}}
+{{/if}}

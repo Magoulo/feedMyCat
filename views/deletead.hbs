@@ -1,0 +1,24 @@
+{{#if hasDatabaseError}}
+<p>Couldn't fetch the data at the moment</p>
+{{else}}
+
+{{#if errors.length}}
+	<p>Couldn't delete the post because:</p>
+	<ul>
+		{{#each errors}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+{{else}}
+
+<h1>Are you sure you want to Delete this ad?</h1>
+   <p> with the name {{cat.Name}}</p>
+
+<form action="/index/{{cat.Cat_id}}/delete" method="POST">
+<input type="hidden" name="_csrf" value="{{csrfToken}}">
+	<div>
+		<input type="submit" value="Yes">
+	</div>
+</form>
+{{/if}}
+{{/if}}

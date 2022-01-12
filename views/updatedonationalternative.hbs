@@ -1,0 +1,38 @@
+
+<h1>Update Donation alternative</h1>
+{{#if hasDatabaseError}}
+<p>The Donation alternative you are trying to update does not exist</p>
+{{else}}
+
+{{#if errors.length}}
+<p>Couldn't update the Donation alternative because:</p>
+<ul>
+	{{#each errors}}
+	<li>{{this}}</li>
+	{{/each}}
+</ul>
+{{/if}}
+{{/if}}
+
+<div class="float-left">
+<form action="/donationalternative/{{donation_alternative.Donation_alternative_id}}/update" method="POST">
+	<input type="hidden" name="_csrf" value="{{csrfToken}}">
+	<div class="float-left">
+		Name: <br>
+		<input type="text" name="name" value="{{donation_alternative.Name}}">
+	</div>
+	<div></div>
+	<div class="float-left">
+		Description:<br>
+		<textarea name="description">{{donation_alternative.Description}}</textarea>
+	</div>
+	<div></div>
+	<div class="float-left">
+		Link to website:<br>
+		<textarea name="link">{{donation_alternative.Website_link}}</textarea>
+	</div>
+	<div>
+		<input class="btn float-left" type="submit" value="Update">
+	</div>
+</form>
+</div>

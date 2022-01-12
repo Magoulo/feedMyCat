@@ -1,0 +1,35 @@
+<h1>Update Post</h1>
+{{#if hasDatabaseError}}
+<p>Couldn't fetch the data at the moment</p>
+{{else}}
+
+{{#if errors.length}}
+<p>Couldn't update the post because:</p>
+<ul>
+	{{#each errors}}
+	<li>{{this}}</li>
+	{{/each}}
+</ul>
+{{/if}}
+<div class="float-left">
+<form action="/index/{{cat.Cat_id}}/update" method="POST">
+	<input type="hidden" name="_csrf" value="{{csrfToken}}">
+	<div>
+		Name: <br><input type="text" name="name" value="{{cat.Name}}">
+	</div>
+	<div></div>
+	<div>
+		Description:<br>
+		<textarea class="float-left" name="description">{{cat.Description}}</textarea>
+	</div>
+	<div></div>
+	<div>
+		Age:<br>
+		<input type="text" name="age" value="{{cat.Age}}">
+	</div>
+	<div>
+		<input class="float-left my-2" type="submit" value="Update">
+	</div>
+</form> 
+</div>
+{{/if}}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+  <meta charset="UTF-8">
+  <title>Feed My Cat</title>
+</head>
+<div class="hero-sm bg-dark">
+  <div class="hero-body text-left mx-2 my-2">
+    <h1>Feed My Cat</h1>
+    <p class="mb-0" style="font-family: cursive;">Sometimes life gets in the way...</p>
+  </div>
+</div>
+<!--*********************************HEADER******************************************'**********************************-->
+<header class="navbar bg-secondary mt-0">
+  <section class="navbar-section">
+    <!--   <a class="col-1" href="/about">About us</a>
+    <a class="col-1" href="/faq">FAQ</a>
+    <a class="col-1" href="/contact">Contact</a>-->
+  </section>
+  <section class="navbar-section">
+    <!--**********************************DROPDOWN MENYN!***************************************************************-->
+    <div class="dropdown dropdown-right">
+      <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">My account <i class="icon icon-caret"></i>
+      </a>
+      <!-- menu component -->
+      <ul class="menu">
+
+        <!-- menu item standard -->
+        <li class="menu-item text-primary">
+         {{#if session.isLoggedIn}}
+         <form action="/auth/logout" method="POST"><input class="btn" type="submit" value="Log out"></form> 
+          {{else}}
+          <a href="/auth/login"><button class="btn">Login</button></a>
+          {{/if}}
+        </li>
+      </ul>
+    </div>
+  </section>
+</header>
+
+<!--******************************BODY**********************************************-->
+<body class="bg-dark">
+
+  </div>
+
+  <div class="container">
+    <div class="columns">
+      <div class="column col-2 bg-secondary mx-0 text-large">
+        <ul style="font-family: cursive; list-style: none;">
+
+          <li>
+            <a href="/">Cat Ads</a>
+          </li>
+          <li>
+            <a href="/about">About Us</a>
+          </li>
+          <li>
+            <a href="/donationalternative">Donation Alternatives</a>
+          </li>
+          <li>
+            <a href="/contact">Contact</a>
+          </li>
+          <li>
+            <a href="/faq">FAQ</a>
+          </li>
+          {{#if session.UserIsLoggedIn}}
+          <li>
+            <a href="/myads">My ads</a>
+          </li>
+          {{/if}}
+        </ul>
+
+      </div>
+      <div class="column auto" style="padding: 0px;">
+        <!--****************************MAIN*********************************************-->
+        <main class="text-center bg-dark" style="text-decoration: none; margin-bottom: 1000px;">
+          {{{body}}}
+        </main>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<!--*******************************Footer*********************************-->
+<footer class="bg-secondary mb-0 columns">
+  <div class="col-6"></div>
+  <p class=" col-2 text-center text-primary mb-0">
+  Cats are great™
+  </p>
+  
+</footer>
+
+</html>

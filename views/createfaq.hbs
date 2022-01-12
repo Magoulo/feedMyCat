@@ -1,0 +1,19 @@
+<h1>new FAQpost!</h1>
+{{#each errors}}
+<li>{{this}}</li>
+{{/each}}
+
+<form action="/faq/create" method="POST">
+	<input type="hidden" name="_csrf" value="{{csrfToken}}">
+	<div class="text-left">
+		Question:<br>
+		<input type="text" name="question">
+	</div>
+	<div class="text-left">
+		Answer:<br>
+		<textarea name="answer"></textarea>
+	</div>
+	<div>
+		<input class="float-left" type="submit" value="Create">
+	</div>
+</form>
