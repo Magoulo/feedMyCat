@@ -2,7 +2,7 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
-const { ExpressHandlebars } = require('express-handlebars')
+//const { ExpressHandlebars } = require('express-handlebars')
 const expressSession = require('express-session')
 const fileUpload = require('express-fileupload')
 
@@ -13,25 +13,25 @@ const authRouter = require('./routers/auth-router')
 const catownerinfoRouter = require('./routers/catownerinfo-router')
 const myadsRouter = require('./routers/myads-router')
 
-const csrf = require('csurf')
-const csrfProtection = csrf()
+//const csrf = require('csurf')
+//const csrfProtection = csrf()
 
 const connectSqlite3 = require('connect-sqlite3')
 const SQLiteStore = connectSqlite3(expressSession)
 
-const sqlite3 = require('sqlite3')
-const db = new sqlite3.Database('catDB.db')
+//const sqlite3 = require('sqlite3')
+//const db = new sqlite3.Database('catDB.db')
 
 const app = express()
+
+app.engine("hbs", expressHandlebars({
+	defaultLayout: 'main.hbs'
+}))
 
 app.use(bodyParser.urlencoded({
 	extended: false
 }))
-app.engine("hbs", expressHandlebars({
-	defaultLayout: 'main.hbs'
-}))
 app.use(expressSession({
-
 	secret: "blehblehebleh",
 	store: new SQLiteStore({ db: "session-db.db" }),
 	saveUninitialized: false,

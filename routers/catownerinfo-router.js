@@ -4,19 +4,15 @@ const db = require('../database')
 const router = express.Router()
 
 router.get('/', function (request, response) {
-
 	db.getAllCatownerinfo(function (error, cat_owner) {
-
-		if(error){
-			
+		if(error){	
 			const model ={
-			hasDatabaseError: true,
-			cat_owner: []
-		}
-        response.render('catownerinfo.hbs',model)
+			    hasDatabaseError: true,
+			    cat_owner: []
+		    }
+            response.render('catownerinfo.hbs',model)
 		}
 		else {
-
 			const model ={
 				hasDatabaseError: false,
 				cat_owner
@@ -27,27 +23,22 @@ router.get('/', function (request, response) {
 })
 
 router.get('/:id', function (request, response) {
-
 	const id = request.params.id
-    const errors = []
 
 	db.getCatownerinfoById(id, function (error, cat_owner) {
-
 		if(error){
-
-		const model = {
-			hasDatabaseError: true,
-			cat_owner
-		}
-		response.render('catownerinfo.hbs', model)
+		    const model = {
+			    hasDatabaseError: true,
+			    cat_owner
+		    }
+		    response.render('catownerinfo.hbs', model)
 		}
 		else{
-
-		const model = {
-			cat_owner
-		}
-		response.render('catownerinfo.hbs', model)
-}
+		    const model = {
+			    cat_owner
+		    }
+		    response.render('catownerinfo.hbs', model)
+        }
 	})
 })
 
