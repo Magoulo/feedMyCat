@@ -66,7 +66,8 @@ app.get('/upload', function (request, response) {
 	response.render('uploadpic.hbs')
 })
 app.get('*', function(request,response){
-	response.send('Page not found', 404)
+	//response.send('Page not found', 404)
+	response.status(404).send('Page not found')
 })
 
 app.listen(8080)
