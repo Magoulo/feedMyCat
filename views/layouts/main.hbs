@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="/static/css/layout.css">
   <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
   <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
   <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
@@ -45,7 +46,7 @@
   <div class="container">
     <div class="columns">
       <div class="column col-2 bg-secondary mx-0 text-large">
-        <ul style="font-family: cursive; list-style: none;">
+        <ul class="navbarlist" id="navbarlist">
           <li>
             <a href="/">Cat Ads</a>
           </li>
@@ -68,9 +69,9 @@
           {{/if}}
         </ul>
       </div>
-      <div class="column auto" style="padding: 0px;">
+      <div class="column auto">
         <!--****************************MAIN*********************************************-->
-        <main class="text-center bg-dark" style="text-decoration: none; margin-bottom: 1000px;">
+        <main class="text-center bg-dark mb-2" >
           {{{body}}}
         </main>
       </div>
