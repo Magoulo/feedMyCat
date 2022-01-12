@@ -3,7 +3,7 @@
 <div class="columns">
   <div class="column col-12">
     {{#if session.AdminIsLoggedIn}}
-      <div class="float-right " style="margin-right: 20px;">
+      <div class="float-right mr-2 ">
         <a href="/index/create"><button class="btn bg-primary">Create Ad</button></a>
       </div>
     {{/if}}
@@ -16,10 +16,10 @@
         {{#each cat}}
           <ul style="list-style: none;">
             <li>Name: {{Name}}</li>
-            <li><img src="/{{Image_reference}}" alt="{{Id}}" style="width:500px;height:600px;"></li>
+            <li><img src="/{{Image_reference}}" alt="{{Id}}" class="catimage"></li>
             <li>Description: {{Description}}</li>
             <li>Age: {{Age}}</li>
-            <div style="margin-top: 20px;">
+            <div class="mt-2">
               <a href="/catownerinfo/{{Cat_owner_id}}">
                 <button class="btn btn-link text-dark bg-warning">Cat owner information</button>
               </a>

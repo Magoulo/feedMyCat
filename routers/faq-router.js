@@ -1,9 +1,7 @@
 const express = require('express')
 const db = require('../database')
-
 const router = express.Router()
 const validators = require('../validators')
-
 const csrf = require('csurf')
 const csrfProtection = csrf()
 

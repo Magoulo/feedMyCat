@@ -1,6 +1,5 @@
 const express = require('express')
 const db = require('../database')
-
 const router = express.Router()
 
 router.get('/', function (request, response) {
@@ -21,7 +20,6 @@ router.get('/', function (request, response) {
 		}		
 	})		
 })
-
 router.get('/:id', function (request, response) {
 	const id = request.params.id
 

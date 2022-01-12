@@ -12,16 +12,16 @@
 {{else}}
 <form action="/index/create" method="POST" encType="multipart/form-data">
 	<input type="hidden" name="_csrf" value="{{csrfToken}}">
-	<div class="text-left">
-		<p style="margin-bottom:5px;">Name:</p>
+	<div class="text-left ">
+		<p class="mb-0">Name:</p>
 		<input type="text" name="name">
 	</div>
 	<div class="text-left">
-		<p style="margin-bottom:5px;">Description:</p>
+		<p class="mb-0">Description:</p>
 		<textarea name="description"></textarea>
 	</div>
-	<div class="text-left">
-		<p style="margin-bottom:5px;">Age:</p>
+	<div class="text-left mb-0">
+		<p class="mb-0">Age:</p>
 		<input type="text" name="age">
 	</div>
 	<div class="text-left mt-2 mb-2">
@@ -45,7 +45,7 @@
 	    <input type="hidden" name="catownerid" value="{{session.CatownerID}}">
 	{{/if}}
 	<div>
-		<input class="float-left" type="submit" value="Create" style="margin-top:10px;">
+		<input class="float-left mt-2" type="submit" value="Create">
 	</div>
 </form>
 {{/if}}

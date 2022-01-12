@@ -14,13 +14,13 @@
           <p class="my-0 mt-2 text-bold">Answer:</p>{{Answer}}
         </div>
         {{#if ../session.AdminIsLoggedIn}}
-          <div class="text-left">
-            <a href="/faq/{{Faq_id}}/update"><button class="btn btn-link text-light bg-success">Update this FAQ-post</button></a>
-            <a href="/faq/{{Faq_id}}/delete"><button class="btn btn-link text-light bg-error">Delete this FAQ-post</button></a>
+          <div class="text-left mt-2">
+            <a href="/faq/{{Faq_id}}/update"><button class="ml-2 btn btn-link text-light bg-success">Update this FAQ-post</button></a>
+            <a href="/faq/{{Faq_id}}/delete"><button class="ml-2 btn btn-link text-light bg-error">Delete this FAQ-post</button></a>
           </div>
         {{/if}}
       {{/each}}
-    <div class="divider text-center" data-content=""></div>
+      <div class="divider text-center" data-content=""></div>
     {{else}}
       <p>No questions or answer here :(</p>
     {{/if}}

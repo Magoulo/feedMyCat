@@ -78,16 +78,6 @@ exports.getFaqById = function (Faq_id, callback) {
 
     db.get(query, values, function (error, faq) {
         callback(error, faq)
-       /* if(faq == undefined){
-            model = {
-                error,
-                faq
-            }
-            callback(model)
-        }
-        else{
-             callback(error, faq)
-        }*/
     })
 }
 exports.updateFaqById = function (Faq_id, Question, Answer, callback) {
@@ -130,16 +120,6 @@ exports.getDonById = function (Donation_alternative_id, callback) {
 
     db.get(query, values, function (error, donation_alternative) {
         callback(error, donation_alternative)
-       /* if(donation_alternative == undefined){
-            model = {
-                error,
-                donation_alternative
-            }
-            callback(model)
-        }
-        else{
-             callback(error, donation_alternative)
-        }*/
     })
 }
 exports.updateDonById = function (Donation_alternative_id, Name, Description, Website_link, callback) {
@@ -161,7 +141,6 @@ exports.deleteDonById = function (Donation_alternative_id, callback) {
 }
 
 //-----------------------------------Cat------------------------------------------------
-
 exports.getAllCat = function (startIndex,endIndex,callback) {
     const query = "SELECT * FROM cat JOIN cat_owner ON cat.Cat_owner_id = cat_owner.Cat_owner_id ORDER BY Cat_id DESC LIMIT ?,?"
     const values = [startIndex,endIndex]
@@ -184,16 +163,6 @@ exports.getCatById = function (Cat_id, callback) {
 
     db.get(query, values, function (error, cat) {
         callback(error, cat)
-       /* if(cat == undefined){
-            model = {
-                error,
-                cat
-            }
-            callback(model)
-        }
-        else{
-            callback(error, cat)
-        }*/
     })
 }
 exports.updateCatById = function (Cat_id, Name, Description, Age, callback) {
@@ -220,16 +189,6 @@ exports.getCatownerinfoById = function (Id, callback) {
 
     db.get(query, values, function (error, cat_owner) {
         callback(error, cat_owner)
-      /*  if(cat_owner == undefined){
-          model = {
-              error,
-              cat_owner
-          }
-          callback(model)
-      }
-      else{
-           callback(error, cat_owner)
-      } */
 })
 }
 exports.getAllCatownerinfo = function (callback) {
@@ -263,16 +222,6 @@ exports.getUseraccount = function (Username, callback) {
 
     db.get(query, values, function (error, User_accounts) {
         callback(error, User_accounts)
-       /* if(User_accounts == undefined){
-            model = {
-                error,
-                User_accounts
-            }
-            callback(model)
-        }
-        else{
-            callback(error, User_accounts)
-        } */
     })
 }
 exports.createUseraccount = function (Username, Password, Cat_owner_id, callback) {

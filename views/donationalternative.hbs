@@ -7,19 +7,19 @@
     {{#if donation_alternative.length}}
         {{#each donation_alternative}}
             <div class="divider text-center" data-content=""></div>
-            <ul class="text-left" style="list-style: none; width: 500px; ">
+            <ul class="donationaltlist text-left">
                 <li>
                     Name: <a href="{{Website_link}}">{{Name}}</a>
                 </li>
                 <li>Description: {{Description}}</li>
             </ul>
             {{#if ../session.AdminIsLoggedIn}}
-                <div class="text-left">
+                <div class="ml-2 text-left">
                     <a href="/donationalternative/{{Donation_alternative_id}}/update">
-                        <button class="btn btn-link text-light bg-success">Update donation alternative</button>
+                        <button class="ml-2 btn btn-link text-light bg-success">Update donation alternative</button>
                     </a>
                     <a href="/donationalternative/{{Donation_alternative_id}}/delete">
-                        <button class="btn btn-link text-light bg-error">Delete donation alternative</button>
+                        <button class="ml-2 btn btn-link text-light bg-error">Delete donation alternative</button>
                     </a>
                 </div>
             {{/if}}

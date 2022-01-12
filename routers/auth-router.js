@@ -1,9 +1,7 @@
 const express = require('express')
 const db = require('../database')
 const bcrypt = require('bcryptjs')
-
 const router = express.Router()
-
 const csrf = require('csurf')
 const csrfProtection = csrf()
 
@@ -13,7 +11,6 @@ const hashedAdminPassword = '$2a$13$qMvfkKBY.ixh6d48lRN7M.qbkJD1PZWdGzRo2h1eZwYY
 router.get('/login', csrfProtection, function (request, response) {
 	response.render('login.hbs', { csrfToken: request.csrfToken() })
 })
-
 router.post('/login', csrfProtection, function (request, response) {
 	const UserN = request.body.username
 	const PW = request.body.password

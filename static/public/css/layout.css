@@ -4,9 +4,10 @@ body{
 .main{
 	min-height: 100vh;
 }
-.navbarlist{
+.navbarlist, .donationaltlist, .catlist, dl{
 	list-style: none;	
 }
-dl{
-	list-style: none;
+.catimage{
+	width:500px;
+	height:600px;
 }
