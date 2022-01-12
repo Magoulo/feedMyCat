@@ -1,13 +1,14 @@
 <h1>New Ad</h1>
-
 {{#if errors.length}}
-<h1>Couldn't create new post beacuse </h1>
+    <h1>Couldn't create new post beacuse </h1>
 {{#each errors}}
-
-<li>{{this}}</li>
+<ul>
+	<li>
+		{{this}}
+	</li>
+</ul>
 {{/each}}
 {{/if}}
-
 <form action="/index/create" method="POST" encType="multipart/form-data">
 	<input type="hidden" name="_csrf" value="{{csrfToken}}">
 	<div class="text-left">
@@ -26,13 +27,13 @@
 		Upload image:
 		<input type="file" name="imageFile">
 	</div>
-
+<!--  list all usernames and let the admin click on one of them -->
 	{{#if session.AdminIsLoggedIn}}
 	<div class="text-left">
 		<p style="margin-bottom:5px;">CatOwnerId:</p>
 		<input type="text" name="catownerid">
 	</div>
-	
+
 	{{else}}
 	<input type="hidden" name="catownerid" value="{{session.CatownerID}}">
 	{{/if}}

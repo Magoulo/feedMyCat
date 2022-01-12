@@ -1,14 +1,12 @@
 {{#if hasDatabaseError}}
-<p>Couldn't fetch the Contact information at the moment, try again later.</p>
-
+    <p>Couldn't fetch the Contact information at the moment, try again later.</p>
 {{else}}
-<ul style="list-style: none;">
-       <p style="font-weight: bold;"> Contact information:</p>
-       <li>Firstname:  {{cat_owner.Firstname}}</li> 
-       <li>Lasttname:  {{cat_owner.Lastname}}</li> 
-       <li>Email:  {{cat_owner.Email}}</li> 
-       <li>Phonenumber:  {{cat_owner.Phonenumber}}</li> 
-       <li>City:  {{cat_owner.City}}</li> 
-      </ul>
- {{/if}} 
- 
+    <p style="font-weight: bold;"> Contact information:</p>
+    <dl>
+         <li>Firstname: {{cat_owner.Firstname}}</li>
+         <li>Lasttname: {{cat_owner.Lastname}}</li>
+         <li>Email: {{cat_owner.Email}}</li>
+         <li>Phonenumber: {{cat_owner.Phonenumber}}</li>
+         <li>City: {{cat_owner.City}}</li>
+    </dl>
+{{/if}}

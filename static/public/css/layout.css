@@ -7,3 +7,6 @@ body{
 .navbarlist{
 	list-style: none;	
 }
+dl{
+	list-style: none;
+}
