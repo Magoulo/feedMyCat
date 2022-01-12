@@ -54,7 +54,29 @@ router.get('/', csrfProtection, function (request, response) {
 
 
 router.get('/create', csrfProtection, function (request, response) {
+	if (request.session.AdminIsLoggedIn) {
+        db.getAllCatownerinfo(function (error, cat_owner) {
+			if(error){	
+				const model ={
+					hasDatabaseError: true,
+					cat_owner: [],
+					csrfToken: request.csrfToken()
+				}
+				response.render('createad.hbs',model)
+			}
+			else {
+				const model ={
+					hasDatabaseError: false,
+					cat_owner,
+					csrfToken: request.csrfToken()
+				}
+				response.render('createad.hbs',model)
+			}		
+		})		
+    }
+	else{
 	response.render('createad.hbs', { csrfToken: request.csrfToken() })
+	}
 })
 
 router.post('/create', csrfProtection, function (request, response) {

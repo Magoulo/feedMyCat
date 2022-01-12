@@ -1,6 +1,7 @@
 <h1>New Ad</h1>
+
 {{#if errors.length}}
-    <h1>Couldn't create new post beacuse </h1>
+<h1>Couldn't create new post beacuse </h1>
 {{#each errors}}
 <ul>
 	<li>
@@ -8,7 +9,7 @@
 	</li>
 </ul>
 {{/each}}
-{{/if}}
+{{else}}
 <form action="/index/create" method="POST" encType="multipart/form-data">
 	<input type="hidden" name="_csrf" value="{{csrfToken}}">
 	<div class="text-left">
@@ -23,17 +24,24 @@
 		<p style="margin-bottom:5px;">Age:</p>
 		<input type="text" name="age">
 	</div>
-	<div class="text-left" style="margin-top: 10px; margin-bottom: 10px;">
+	<div class="text-left mt-2 mb-2">
 		Upload image:
 		<input type="file" name="imageFile">
 	</div>
-<!--  list all usernames and let the admin click on one of them -->
-	{{#if session.AdminIsLoggedIn}}
-	<div class="text-left">
-		<p style="margin-bottom:5px;">CatOwnerId:</p>
-		<input type="text" name="catownerid">
-	</div>
 
+	{{#if session.AdminIsLoggedIn}}
+	<p class="text-left mb-0 mt-2">Cat owner:</p>
+	{{#each cat_owner}}
+	<div class="form-group  mb-0">
+		<label class="form-label  mb-0"></label>
+		<label class="form-radio  mb-0">
+			<input type="radio" name="catownerid" value="{{Cat_owner_id}}" checked>	
+			<i class="form-icon"></i>
+			<p class="text-left  mb-0">{{Firstname}} {{Lastname}}
+			</p>
+		</label>
+	</div>
+	{{/each}}	
 	{{else}}
 	<input type="hidden" name="catownerid" value="{{session.CatownerID}}">
 	{{/if}}
@@ -41,3 +49,4 @@
 		<input class="float-left" type="submit" value="Create" style="margin-top:10px;">
 	</div>
 </form>
+{{/if}}

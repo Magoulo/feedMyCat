@@ -12,7 +12,7 @@ const MIN_AGE_LENGTH = 1
 
 exports.getCatValidationErrors = function(name, description, age) {
 	const validationErrors = []
-
+   
     if(name.length == 0){
         validationErrors.push("You must enter a name.")
     }
