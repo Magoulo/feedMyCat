@@ -1,0 +1,9 @@
+body{
+	height: 1000px;
+}
+.main{
+	min-height: 100vh;
+}
+.navbarlist{
+	list-style: none;	
+}

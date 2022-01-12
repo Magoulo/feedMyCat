@@ -2,26 +2,28 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="static/css/layout.css">
-  <!--<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
   <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
   <meta charset="UTF-8">
   <title>
     Feed My Cat
   </title>
 </head>
 <!--body-->
-<body class="bg-dark grow">
-  <header class="navbar columns mt-0">
+
+<body class="bg-dark">
+  <header class="navbar mt-0">
     <div class="col-12">
-      <div class="hero-sm bg-dark col-12">
+      <div class="hero-sm bg-dark">
         <div class="hero-body text-left mx-2 my-2">
           <h1 class="ml-2">Feed My Cat</h1>
           <p class="mb-0 ml-2" style="font-family: cursive;">Sometimes life gets in the way...</p>
         </div>
       </div>
-      <section class="navbar-section col-12 bg-secondary">
+      <section class="navbar-section bg-secondary">
         <!--Dropdown menu-->
         <div class="dropdown dropdown-right">
           <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">My account <i class="icon icon-caret"></i>
@@ -43,10 +45,12 @@
       </section>
     </div>
   </header>
+  <!--navbar and main-->
   <div class="container">
     <div class="columns">
+      <!--navbar-->
       <div class="column col-2 bg-secondary mx-0 text-large">
-        <ul class="nav ml-2">
+        <ul class="navbarlist">
           <li>
             <a href="/">Cat Ads</a>
           </li>
@@ -69,21 +73,21 @@
           {{/if}}
         </ul>
       </div>
-      <div class="col-10">
-        <!--main-->
-        <main class="text-center bg-dark mb-2">
+      <!--main-->
+      <div class="column auto">  
+        <main class="main text-center bg-dark mb-2">
           {{{body}}}
         </main>
       </div>
     </div>
   </div>
 </body>
-<!--footer
+
 <footer class="bg-secondary mb-0 columns">
   <div class="col-6"></div>
   <p class=" col-2 text-center text-primary mb-0">
     Cats are great™
   </p>
-</footer>-->
+</footer>
 
 </html>
