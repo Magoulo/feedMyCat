@@ -2,39 +2,37 @@
 <p>Here we have listed a couple of cat help organisations if you would like to make a donation. </p>
 
 {{#if hasDatabaseError}}
-<p>Couldn't fetch the donation alternatives at the moment, try again later.</p>
+    <p>Couldn't fetch the donation alternatives at the moment, try again later.</p>
 {{else}}
-
-{{#if donation_alternative.length}}
-{{#each donation_alternative}}
-<div class="divider text-center" data-content=""></div>
-<ul class="text-left" style="list-style: none; width: 500px; ">
-    <li>
-        Name: <a href="{{Website_link}}">{{Name}}</a>
-    </li>
-
-    <li>Description: {{Description}}</li>
-
-</ul>
-{{#if ../session.AdminIsLoggedIn}}
-<div class="text-left">
-    <a href="/donationalternative/{{Donation_alternative_id}}/update"><button
-            class="btn btn-link text-light bg-success">Update donation alternative</button></a>
-    <a href="/donationalternative/{{Donation_alternative_id}}/delete"><button
-            class="btn btn-link text-light bg-error">Delete donation alternative</button></a>
-</div>
-{{/if}}
-{{/each}}
-<div class="divider text-center" data-content=""></div>
-{{else}}
-
-<p>No donation pages here :(</p>
-{{/if}}
+    {{#if donation_alternative.length}}
+        {{#each donation_alternative}}
+            <div class="divider text-center" data-content=""></div>
+            <ul class="text-left" style="list-style: none; width: 500px; ">
+                <li>
+                    Name: <a href="{{Website_link}}">{{Name}}</a>
+                </li>
+                <li>Description: {{Description}}</li>
+            </ul>
+            {{#if ../session.AdminIsLoggedIn}}
+                <div class="text-left">
+                    <a href="/donationalternative/{{Donation_alternative_id}}/update">
+                        <button class="btn btn-link text-light bg-success">Update donation alternative</button>
+                    </a>
+                    <a href="/donationalternative/{{Donation_alternative_id}}/delete">
+                        <button class="btn btn-link text-light bg-error">Delete donation alternative</button>
+                    </a>
+                </div>
+            {{/if}}
+        {{/each}}
+        <div class="divider text-center" data-content=""></div>
+    {{else}}
+        <p>No donation pages here :(</p>
+    {{/if}}
 {{/if}}
 {{#if session.AdminIsLoggedIn}}
-<p>
-    <a href="/donationalternative/create"><button class="btn bg-primary">Create new Donation post</button></a>
-</p>
+    <p>
+        <a href="/donationalternative/create"><button class="btn bg-primary">Create new Donation post</button></a>
+    </p>      
 {{/if}}
 <footer>
     <p>Email us if you have an animal help association in need of donations. <br>

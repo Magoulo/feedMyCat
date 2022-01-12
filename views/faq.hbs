@@ -1,37 +1,33 @@
 <h1>Frequently Asked Questions</h1>
 
 {{#if hasDatabaseError}}
-<p>Couldn't fetch FAQ at the moment, try again later.</p>
+    <p>Couldn't fetch FAQ at the moment, try again later.</p>
 {{else}}
-
-<div class="columns "></div>
-{{#if faq.length}}
-{{#each faq}}
-<div class="divider text-center" data-content=""></div>
-<div class="column col-12 text-left">
-  <p class="my-0 mt-2 text-bold">Question:</p>{{Question}}
-</div>
-<div class="column col-12 text-left">
-  <p class="my-0 mt-2 text-bold">Answer:</p>{{Answer}}
-</div>
-
-{{#if ../session.AdminIsLoggedIn}}
-<div class="text-left">
-  <a href="/faq/{{Faq_id}}/update"><button class="btn btn-link text-light bg-success">Update this FAQ-post</button></a>
-  <a href="/faq/{{Faq_id}}/delete"><button class="btn btn-link text-light bg-error">Delete this FAQ-post</button></a>
-</div>
+  <div class="columns "></div>
+    {{#if faq.length}}
+      {{#each faq}}
+        <div class="divider text-center" data-content=""></div>
+        <div class="column col-12 text-left">
+          <p class="my-0 mt-2 text-bold">Question:</p>{{Question}}
+        </div>
+        <div class="column col-12 text-left">
+          <p class="my-0 mt-2 text-bold">Answer:</p>{{Answer}}
+        </div>
+        {{#if ../session.AdminIsLoggedIn}}
+          <div class="text-left">
+            <a href="/faq/{{Faq_id}}/update"><button class="btn btn-link text-light bg-success">Update this FAQ-post</button></a>
+            <a href="/faq/{{Faq_id}}/delete"><button class="btn btn-link text-light bg-error">Delete this FAQ-post</button></a>
+          </div>
+        {{/if}}
+      {{/each}}
+    <div class="divider text-center" data-content=""></div>
+    {{else}}
+      <p>No questions or answer here :(</p>
+    {{/if}}
+    {{#if session.AdminIsLoggedIn}}
+      <p>
+        <a href="/faq/create"><button class="btn bg-primary">Create new FAQ</button></a>
+      </p>
+    {{/if}}
+  </div>
 {{/if}}
-{{/each}}
-<div class="divider text-center" data-content=""></div>
-{{else}}
-
-<p>No questions or answer here :(</p>
-{{/if}}
-{{/if}}
-
-{{#if session.AdminIsLoggedIn}}
-<p>
-  <a href="/faq/create"><button class="btn bg-primary">Create new FAQ</button></a>
-</p>
-{{/if}}
-</div>

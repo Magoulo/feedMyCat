@@ -1,7 +1,9 @@
 <h1>new Donation alternative!</h1>
 
 {{#each errors}}
-<li>{{this}}</li>
+    <li>
+	    {{this}}
+    </li>
 {{/each}}
 
 <form action="/donationalternative/create" method="POST">
@@ -19,6 +21,6 @@
 		<input type="text" name="link">
 	</div>
 	<div>
-		<input class="float-left" type="submit" value="Create">
+		<input class="float-left mt-2" type="submit" value="Create">
 	</div>
 </form>

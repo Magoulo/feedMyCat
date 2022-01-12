@@ -3,50 +3,44 @@
 <div class="columns">
   <div class="column col-12">
     {{#if session.AdminIsLoggedIn}}
-    <div class="float-right " style="margin-right: 20px;">
-      <a href="/index/create"><button class="btn bg-primary">Create Ad</button></a>
-    </div>
+      <div class="float-right " style="margin-right: 20px;">
+        <a href="/index/create"><button class="btn bg-primary">Create Ad</button></a>
+      </div>
     {{/if}}
   </div>
   <div class="column col-12">
-
     {{#if hasDatabaseError}}
-    <p>Couldn't fetch the cats at the moment, try again later.</p>
+      <p>Couldn't fetch the cat s at the moment, try again later.</p>
     {{else}}
-
-    {{#if cat.length}}
-    {{#each cat}}
-    <ul style="list-style: none;">
-      <li>Name: {{Name}}</li>
-      <li><img src="/{{Image_reference}}" alt="{{Id}}" style="width:500px;height:600px;"></li>
-      <li>Description: {{Description}}</li>
-      <li>Age: {{Age}}</li>
-
-      <div style="margin-top: 20px;">
-        <a href="/catownerinfo/{{Cat_owner_id}}"><button class="btn btn-link text-dark bg-warning">Cat owner
-            information</button></a>
-      </div>
-    </ul>
-
-    {{#if ../session.AdminIsLoggedIn}}
-    <div class="my-2">
-      <a href="/index/{{Cat_id}}/update"><button class="btn btn-link text-dark bg-success"> Update</button></a>
-      <a href="/index/{{Cat_id}}/delete"><button class="btn btn-link text-dark bg-error">Delete</button></a>
-    </div>
-    {{/if}}
-    {{/each}}
-    {{else}}
-
-    <p>No cats here :(</p>
-    {{/if}}
+      {{#if cat.length}}
+        {{#each cat}}
+          <ul style="list-style: none;">
+            <li>Name: {{Name}}</li>
+            <li><img src="/{{Image_reference}}" alt="{{Id}}" style="width:500px;height:600px;"></li>
+            <li>Description: {{Description}}</li>
+            <li>Age: {{Age}}</li>
+            <div style="margin-top: 20px;">
+              <a href="/catownerinfo/{{Cat_owner_id}}">
+                <button class="btn btn-link text-dark bg-warning">Cat owner information</button>
+              </a>
+            </div>
+          </ul>
+          {{#if ../session.AdminIsLoggedIn}}
+            <div class="my-2">
+              <a href="/index/{{Cat_id}}/update"><button class="btn btn-link text-dark bg-success"> Update</button></a>
+              <a href="/index/{{Cat_id}}/delete"><button class="btn btn-link text-dark bg-error">Delete</button></a>
+            </div>
+          {{/if}}
+        {{/each}}
+      {{else}}
+        <p>No cats here :(</p>
+      {{/if}}
     {{/if}}
   </div>
 </div>
-
 {{#if previous}}
-<a href="/index/?page={{previous}}"><button class="btn"> Previous Page</button></a>
+  <a href="/index/?page={{previous}}"><button class="btn"> Previous Page</button></a>
 {{/if}}
-
 {{#if morePages}}
-<a href="/index/?page={{next}}"><button class="btn"> Next Page</button></a>
+  <a href="/index/?page={{next}}"><button class="btn"> Next Page</button></a>
 {{/if}}

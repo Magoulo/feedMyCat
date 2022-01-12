@@ -2,19 +2,19 @@
 {{#if hasDatabaseError}}
     <p>The FAQ you are trying to delete does not exist</p>
 {{else}}
-{{#if errors.length}}
-    <p>Couldn't Delete FAQ-post because:</p>
-{{#each errors}}
-    <li style="list-style: none;">{{this}}</li>
-{{/each}}
-{{else}}
-    <h1>Are you sure you want to Delete this FAQ?</h1>
-    <p> with the Question {{faq.Question}} and the Answer {{faq.Answer}}</p>
-    <form action="/faq/{{faq.Faq_id}}/delete" method="POST">
-	    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-	    <div>
-		    <input type="submit" value="Yes">
-	    </div>
-    </form>
-{{/if}}
+    {{#if errors.length}}
+        <p>Couldn't Delete FAQ-post because:</p>
+        {{#each errors}}
+            <li style="list-style: none;">{{this}}</li>
+        {{/each}}
+    {{else}}
+        <h1>Are you sure you want to Delete this FAQ?</h1>
+        <p> with the Question {{faq.Question}} and the Answer {{faq.Answer}}</p>
+        <form action="/faq/{{faq.Faq_id}}/delete" method="POST">
+	        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+	        <div>
+		        <input type="submit" value="Yes">
+	        </div>
+        </form>
+    {{/if}}
 {{/if}}
