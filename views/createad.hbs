@@ -10,7 +10,7 @@
 </ul>
 {{/each}}
 {{else}}
-<form action="/index/create" method="POST" encType="multipart/form-data">
+<form class="ml-2" action="/index/create" method="POST" encType="multipart/form-data">
 	<input type="hidden" name="_csrf" value="{{csrfToken}}">
 	<div class="text-left ">
 		<p class="mb-0">Name:</p>
@@ -36,7 +36,7 @@
 		    	<input type="radio" name="catownerid" value="{{Cat_owner_id}}" checked>	
 		    	<i class="form-icon"></i>
 		    	<p class="text-left  mb-0">
-					{{Firstname}}{{Lastname}}
+					{{Firstname}} {{Lastname}}
 		    	</p>
 		    </label>
 	    </div>
