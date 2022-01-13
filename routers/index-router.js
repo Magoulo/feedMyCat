@@ -84,7 +84,7 @@ router.post('/create', csrfProtection, function (request, response) {
 	if (errors.length == 0) {
 		const imageFile = request.files.imageFile
 		const uploadPath = "static/public/" + imageFile.name
-		const Image_reference = imageFile.name
+		const Image_path = imageFile.name
 		imageFile.mv(uploadPath, function (error) {
 			if (error) {
 				console.log("Error in uploading pathway")
@@ -95,14 +95,14 @@ router.post('/create', csrfProtection, function (request, response) {
 				console.log("file uploaded")
 			}
 		})
-		db.createCat(Name, Description, Image_reference, Cat_owner_Id, Age, function (error, Cat_id) {
+		db.createCat(Name, Description, Image_path, Cat_owner_Id, Age, function (error, Cat_id) {
 			if (error) {
 				errors.push("Internal server error.")
 				const model = {
 					errors,
 					Name,
 					Description,
-					Image_reference,
+					Image_path,
 					Cat_owner_Id,
 					Age,
 					csrfToken: request.csrfToken()
@@ -197,11 +197,9 @@ router.post('/:id/update', csrfProtection, function (request, response) {
 			}
 			else {
 				if (request.session.AdminIsLoggedIn) {
-
 					response.redirect('/index')
 				}
 				else {
-
 					response.redirect('/myads')
 				}
 			}
