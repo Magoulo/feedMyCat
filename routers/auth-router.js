@@ -27,7 +27,6 @@ router.post('/login', csrfProtection, function (request, response) {
 				errors.push("Internal server error")
 				const model = {
 					errors,
-					User_accounts,
 					csrfToken: request.csrfToken()
 				}
 				response.render('login.hbs', model)

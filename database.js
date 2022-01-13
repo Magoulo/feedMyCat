@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS "cat" (
 	"Cat_id"	INTEGER,
 	"Name"	TEXT,
 	"Description"	TEXT,
-	"Image_reference"	TEXT,
+	"Image_path"	TEXT,
 	"Cat_owner_id"	INTEGER,
 	"Age"	INTEGER,
 	PRIMARY KEY("Cat_id" AUTOINCREMENT),
@@ -54,7 +54,6 @@ CREATE TABLE IF NOT EXISTS "faq" (
 
 //------------------------------------FAQ-------------------------------------------------------------------
 exports.getAllFaq = function (callback) {
-
     const query = "SELECT * FROM faq"
 
     db.all(query, function (error, faq) {
@@ -62,7 +61,6 @@ exports.getAllFaq = function (callback) {
     })
 }
 exports.createFaq = function (Question, Answer, callback) {
-
     const query = "INSERT INTO faq (Question, Answer) VALUES(?,?)"
     const values = [Question, Answer]
 
@@ -72,7 +70,6 @@ exports.createFaq = function (Question, Answer, callback) {
     })
 }
 exports.getFaqById = function (Faq_id, callback) {
-
     const query = "SELECT * FROM faq WHERE Faq_id = ? LIMIT 1"
     const values = [Faq_id]
 
@@ -149,9 +146,9 @@ exports.getAllCat = function (startIndex,endIndex,callback) {
         callback(error, cat)
     })
 }
-exports.createCat = function (Name, Description, Image_reference, Cat_owner_Id, Age, callback) {
-    const query = "INSERT INTO cat (Name,Description,Image_reference,Cat_owner_Id, Age) VALUES(?,?,?,?,?)"
-    const values = [Name, Description, Image_reference, Cat_owner_Id, Age]
+exports.createCat = function (Name, Description, Image_path, Cat_owner_Id, Age, callback) {
+    const query = "INSERT INTO cat (Name,Description,Image_path,Cat_owner_Id, Age) VALUES(?,?,?,?,?)"
+    const values = [Name, Description, Image_path, Cat_owner_Id, Age]
 
     db.run(query, values, function (error) {
         callback(error, this.lastID)
@@ -221,7 +218,12 @@ exports.getUseraccount = function (Username, callback) {
     const values = [Username]
 
     db.get(query, values, function (error, User_accounts) {
-        callback(error, User_accounts)
+        if(User_accounts == undefined){          
+            callback({error,User_accounts})
+        }
+        else{
+             callback(error,User_accounts)       
+        }
     })
 }
 exports.createUseraccount = function (Username, Password, Cat_owner_id, callback) {
