@@ -138,7 +138,6 @@ router.post('/:id/update', csrfProtection, function (request, response) {
         })
     }
     else { 
-        console.log(error)
         const model = {
             errors,
             donation_alternative: {
